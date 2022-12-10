@@ -1,0 +1,149 @@
+@font-face {
+    font-family: "Myriad Semibold";
+    src: url("../fonts/MYRIADPRO-SEMIBOLD.woff") format("woff");
+  }
+  
+  @font-face {
+    font-family: "Myriad Bold";
+    src: url("../fonts/MYRIADPRO-BOLD.woff") format("woff");
+  }
+  
+  @font-face {
+    font-family: "Myriad Bold Italic";
+    src: url("../fonts/MYRIADPRO-BOLDIT.woff") format("woff");
+  }
+  .card {
+    width: 300px;
+    height: 400px;
+    background-color: #ffffff;
+    border-radius: 24px;
+    padding: 16px;
+    overflow: hidden;
+    transform: translate(0);
+    margin: 5px;
+    transition: 0.25s;
+  }
+  .card:hover {
+    transform: scale(1.03);
+  }
+  .card::before {
+    content: "";
+    position: absolute;
+    top: -64px;
+    left: -64px;
+    width: 150%;
+    height: 76%;
+    transform: rotate(-12deg);
+    z-index: -1;
+  }
+  .card h2 {
+    font-family: "Myriad Bold Italic";
+    font-size: 50px;
+    line-height: 64px;
+    color: #ffffff;
+    margin: 0;
+    /* margin-top: 24px; */
+  }
+  .card .product {
+    height: 100px;
+    width: 200px;
+    object-fit: contain;
+    margin: auto;
+  }
+  .card .price {
+    text-align: right;
+    margin-top: -24px;
+  }
+  .card .price :is(h6, h4) {
+    font-family: "Myriad Bold";
+    color: #ffffff;
+    margin: 0;
+  }
+  .card .price h6 {
+    color: #a3a3a3;
+    font-size: 12px;
+    text-decoration: line-through;
+  }
+  .card .price h4 {
+    font-size: 24px;
+    margin-top: 50px;
+  }
+  .card .button-right {
+    text-align: right;
+    margin-top: 20px;
+  }
+  .card button {
+    font-family: "Myriad Semibold";
+    font-size: 16px;
+    text-transform: uppercase;
+    color: #ffffff;
+    padding: 8px 32px;
+    border: none;
+    border-radius: 48px;
+    cursor: pointer;
+  }
+
+  /* ! Card */
+  .card.card-yellow::before {
+    background: linear-gradient(170deg, #d97904, #f2b705);
+  }
+  .card.card-blue::before {
+    background: linear-gradient(170deg, #235b8c, #03a696);
+  }
+  .card.card-red::before {
+    background: linear-gradient(170deg, #d9042b, #f13a5c);
+  }
+  .card.card-black::before {
+    background: linear-gradient(170deg, #212121, #0D7377);
+  }
+  .card.card-teal::before {
+    background: linear-gradient(170deg, #222831, #00ADB5);
+  }
+  /* ! Card */
+
+  /* ! Price */
+  .card.card-yellow .price h4 {
+    background: linear-gradient(170deg, #d97904, #f2b705);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .card.card-blue .price h4 {
+    background: linear-gradient(170deg, #235b8c, #03a696);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .card.card-red .price h4 {
+    background: linear-gradient(170deg, #d9042b, #f13a5c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .card.card-black .price h4 {
+    background: linear-gradient(170deg, #212121, #0D7377);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .card.card-teal .price h4 {
+    background: linear-gradient(170deg, #222831, #00ADB5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  /* ! Price */
+
+  /* ! Button */
+  .card.card-yellow button {
+    background: linear-gradient(170deg, #d97904, #f2b705);
+  }
+  .card.card-blue button {
+    background: linear-gradient(170deg, #235b8c, #03a696);
+  }
+  .card.card-red button {
+    background: linear-gradient(170deg, #d9042b, #f13a5c);
+  }
+  .card.card-black button {
+    background: linear-gradient(170deg, #212121, #0D7377);
+  }
+  .card.card-teal button {
+    background: linear-gradient(170deg, #222831, #00ADB5);
+  }
+  /* ! Button */
+  

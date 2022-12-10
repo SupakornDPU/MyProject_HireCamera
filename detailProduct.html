@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Products</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <style>
+        body {
+            padding-top: 55px;
+        }
+        a, u {
+            text-decoration: none;
+            color: white;
+        }
+        a:hover {
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="d-flex flex-column min-vh-100">
+    <!-- ! Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+        <img src="img/camera-logo-download-clipart-24.png" class="bi me-2" width="40px" height="40px" role="img" aria-label="Bootstrap"></img>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav me-auto mb-2 px-3 gap-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link" href="index.html"><i class="mx-1 bi bi-house-fill"></i>Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="category.html"><i class="mx-1 bi bi-camera-fill"></i>Camera</a></li>
+                <li class="nav-item"><a class="nav-link" href="#"><i class="mx-1 bi bi-person-lines-fill"></i>Contact</a></li>
+            </ul>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            </form>
+            <div class="text-end">
+                <a type="button" class="btn btn-outline-light me-2" href="login.html">Login</a>
+                <a type="button" class="btn btn-primary" href="register.html">Sign-up</a>
+            </div>
+        </div>
+        </div>
+    </nav>
+    <!-- ! Navbar -->
+
+    <!-- ! Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 text-center">
+                <img src="img/sony-a9-300x300.png" alt="" style="width: 80%;">
+            </div>
+            <div class="col-md-6 my-auto">
+                <h2>รายละเอียดสินค้า</h2>
+                <p>แบรนด์ : Sony</p>
+                <ul>
+                    <li>ขนาดเซ็นเซอร์ : Full-Frame Stacked CMOS Sensor 24.2 ล้านพิกเซล</li>
+                    <li>ถ่ายภาพต่อเนื่อง : 20 ภาพต่อวินาที</li>
+                    <li>กันสั่น 5 แกน</li>
+                    <li>จอ 3.0″ Touch-Screen 1,440k-Dot ปรับก้มเงยได้</li>
+                    <li>ช่องมองภาพ 3.68M-Dot OLED Blackout-Free</li>
+                    <li>Video : UHD 4K 30P ,1080P120</li>
+                    <li>ISO 100-51200 (Extended Mode 50-204800)</li>
+                    <li>จุดโฟกัส : Phase Detection 693 จุด</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="rounded my-3" style="background-color: #E4E4E4;">
+            <form action="">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-4">
+                        <label for="date" class="col-form-label" style="font-weight: bold;">วันที่รับ</label>
+                        <input type="date" name="" id="date" class="form-control my-2">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="date_2" class="col-form-label" style="font-weight: bold;">วันที่คืน</label>
+                        <input type="date" name="" id="date_2" class="form-control my-2">
+                    </div>
+                    <div class="text-center col-md-2 align-self-center">
+                        <button class="btn btn-success btn-md btn-block my-3" type="button" style="font-weight: bold;"><a href="payment.html">เช่าสินค้า</a></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- ! Content -->
+
+    <!-- !Footer -->
+    <footer class="footer text-center text-white mt-auto" style="background-color: #21081a;">
+        <!-- Grid container -->
+        <div class="container p-4">
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button">
+                <i class="bi bi-facebook"></i>
+            </a>
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button">
+                <i class="bi bi-line"></i>
+            </a>
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button">
+                <i class="bi bi-instagram"></i>
+            </a>
+        </div>
+        <!-- Grid container -->
+        
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2020 Copyright:
+            <a class="text-white" href="#">Hire Camera</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+    <!-- !Footer -->
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setting Profile</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <style>
+        body {
+            padding-top: 55px;
+        }
+    </style>
+</head>
+<body class="d-flex flex-column min-vh-100">
+    <!-- ! Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+        <img src="img/camera-logo-download-clipart-24.png" class="bi me-2" width="40px" height="40px" role="img" aria-label="Bootstrap"></img>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav me-auto mb-2 px-3 gap-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link" href="index.html"><i class="mx-1 bi bi-house-fill"></i>Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="category.html"><i class="mx-1 bi bi-camera-fill"></i>Camera</a></li>
+                <li class="nav-item"><a class="nav-link" href="#"><i class="mx-1 bi bi-person-lines-fill"></i>Contact</a></li>
+            </ul>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            </form>
+            <div class="text-end">
+                <a type="button" class="btn btn-outline-light me-2" href="login.html">Login</a>
+                <a type="button" class="btn btn-primary" href="register.html">Sign-up</a>
+            </div>
+        </div>
+        </div>
+    </nav>
+    <!-- ! Navbar -->
+    
+    <div class="container form-control-lg">
+        <h1 class="my-3">การตั้งค่าบัญชี</h1>
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-6">
+                <form action="">
+                    <div class="row d-flex justify-content-center align-items-end my-3">
+                        <div class="col-md-8">
+                            <label for="text" class="form-label my-2">ชื่อ-สกุล</label>
+                            <input class="form-control" type="text">
+                        </div>
+                        <div class="col-md-2">
+                            <button type="button" class="btn btn-info text-white">แก้ไข</button>
+                        </div>
+                    </div>
+
+                    <div class="row d-flex justify-content-center align-items-end my-3">
+                        <div class="col-md-8">
+                            <label for="text" class="form-label my-2">ชื่อผู้ใช้</label>
+                            <input class="form-control" type="text">
+                        </div>
+                        <div class="col-md-2">
+                            <button type="button" class="btn btn-info text-white">แก้ไข</button>
+                        </div>
+                    </div>
+
+                    <div class="row d-flex justify-content-center align-items-end my-3">
+                        <div class="col-md-8">
+                            <label for="text" class="form-label my-2">พาสเวิร์ด</label>
+                            <input class="form-control" type="password">
+                        </div>
+                        <div class="col-md-2">
+                            <button type="button" class="btn btn-info text-white">แก้ไข</button>
+                        </div>
+                    </div>
+
+                    <div class="row d-flex justify-content-center align-items-end my-3">
+                        <div class="col-md-8">
+                            <label for="text" class="form-label my-2">อีเมลล์</label>
+                            <input class="form-control" type="email">
+                        </div>
+                        <div class="col-md-2">
+                            <button type="button" class="btn btn-info text-white">แก้ไข</button>
+                        </div>
+                    </div>
+
+                    <div class="row d-flex justify-content-center align-items-end my-3">
+                        <div class="col-md-8">
+                            <label for="text" class="form-label my-2">เบอร์โทร</label>
+                            <input class="form-control" type="tel">
+                        </div>
+                        <div class="col-md-2">
+                            <button type="button" class="btn btn-info text-white">แก้ไข</button>
+                        </div>
+                    </div>
+
+                    <div class="row d-flex justify-content-center my-3">
+                        <div class="col-md-8">
+                            <label for="text" class="form-label my-2">ที่อยู่</label>
+                            <input class="form-control p-5" type="text">
+                        </div>
+                        <div class="col-md-2 mt-auto">
+                            <button type="button" class="btn btn-info text-white">แก้ไข</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
