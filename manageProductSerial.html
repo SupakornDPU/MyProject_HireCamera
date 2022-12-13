@@ -10,6 +10,8 @@
     <script src="js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="//cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
+    <script src="//cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
     <style>
         body {
             padding-top: 55px;
@@ -78,7 +80,7 @@
                         <button class="btn btn-info text-white" id="createData" onclick="window.location.reload();">เพิ่มสินค้า</button>
                     </div>
                     <div class="div mx-3">
-                        <button class="btn btn-success" id="editData" onclick="window.location.reload();">แก้ไข</button>
+                        <button class="btn btn-success" id="saveData" onclick="window.location.reload();">บันทึก</button>
                     </div>
                 </div>
             </div>
@@ -86,7 +88,7 @@
     </div>
 
     <div class="container ">
-        <div class="input-group mt-3 ">
+        <!-- <div class="input-group mt-3 ">
             <span class="input-group-text" id="basic-addon1">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
                     viewBox="0 0 16 16">
@@ -96,8 +98,8 @@
                 </svg>
             </span>
             <input type="search" class="form-control">
-        </div>
-        <table class="table table-dark mb-5 text-center align-middle">
+        </div> -->
+        <table class="table table-dark table-hover table-striped mb-5 align-middle" id="table-master">
             <thead>
                 <tr>
                     <th>หมายเลขผลิตภัณฑ์</th>
@@ -142,25 +144,30 @@
     <!-- !Footer -->
 
     <script>
+        
         $(document).ready(() => {
             $.ajax({
                 method: 'get',
-                url: 'http://localhost:5084/api/Products/ProductSerial',
+                url: 'http://localhost:5084/api/Products/ProductSerials',
                 success: (response) => {
                     console.log(response)
                     let html = "";
                     for (let i = 0; i < response.length; i++) {
                         const data = response[i];
-                        html += `          
+                        html += `
                             <tr>
                                 <td>${data.productSerialnumber}</td>
                                 <td>${data.productName}</td>
                                 <td>${data.productPrice}</td>
                                 <td>
-                                    <button type="button" class="btn btn-danger">ลบ</button></td>
+                                    <button type="button" class="btn btn-danger" onclick="deleteDatable('${data.productSerialnumber}')">ลบ</button>
+                                    <button class="btn btn-success" onclick="getValue(${data.productSerialnumber},'${data.productName}',${data.productPrice})">แก้ไข</button></td>
                             </tr>`;
                     }
                     document.getElementById("tbody").innerHTML = html;
+                    $('#tbody').html(html).promise().done(() => {
+                        $('#table-master').DataTable();
+                    })
                 }
             })
         })
@@ -188,17 +195,38 @@
                 .then(data => console.log(data))
                 .catch(error => console.log(error));
         });
+        
+        function deleteDatable(productSerialnumber) {
+            if (confirm('คุณต้องการลบข้อมูล ใช่ หรือ ไม่')) {
+                // Delete DATA
+                fetch(`http://localhost:5084/api/Products/DeleteProductSerials?id=${productSerialnumber}`, {
+                    method: 'delete',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                }).then(res => res.json())
+                    .then(data => console.log(data))
+                    .catch(error => console.log(error))
+                    window.location.reload();
+            }
+        }
+
+        function getValue(productSerialnumber,productName,productPrice) {
+            document.getElementById("productSerialnumber").value = productSerialnumber;
+            document.getElementById("productName").value = productName;
+            document.getElementById("productPrice").value = productPrice;
+        }
 
         // PUT DATA
-        let editDataBtn = document.querySelector('#editData');
-        editDataBtn.addEventListener('click', function (e) {
+        let saveDataBtn = document.querySelector('#saveData');
+        saveDataBtn.addEventListener('click', function (e) {
             e.preventDefault();
-
+            
             var productSerialnumber = document.getElementById("productSerialnumber").value;
             var productName = document.getElementById("productName").value;
             var productPrice = document.getElementById("productPrice").value;
 
-            fetch(`http://localhost:5084/api/Products/EditProductSerial`, {
+            fetch(`http://localhost:5084/api/Products/EditProductSerials`, {
                 method: 'put',
                 headers: {
                     'Content-Type': 'application/json',
@@ -210,9 +238,24 @@
                 })
             }).then(res => res.json())
                 .then(data => console.log(data))
-                .catch(error => console.log(error));
+                .catch(error => console.log(error))
         });
+        // // Delete DATA
+        // let deleteDataBtn = document.querySelector('#deleteData');
+        // deleteDataBtn.addEventListener('click', function (e) {
+        //     e.preventDefault();
 
+        //     var productSerialnumber = document.getElementById("productSerialnumber").value;
+
+        //     fetch(`http://localhost:5084/api/Products/DeleteProductSerials?id=${productSerialnumber}`, {
+        //         method: 'delete',
+        //         headers: {
+        //             'Content-Type': 'application/json',
+        //         },
+        //     }).then(res => res.json())
+        //         .then(data => console.log(data))
+        //         .catch(error => console.log(error));
+        // });
 
  // myForm.addEventListener('submit', function (e) {
         //     e.preventDefault();
