@@ -13,8 +13,8 @@
     src: url("../fonts/MYRIADPRO-BOLDIT.woff") format("woff");
   }
   .card {
-    width: 300px;
-    height: 400px;
+    width: 280px;
+    height: 350px;
     background-color: #ffffff;
     border-radius: 24px;
     padding: 16px;
@@ -38,7 +38,7 @@
   }
   .card h2 {
     font-family: "Myriad Bold Italic";
-    font-size: 50px;
+    font-size: 40px;
     line-height: 64px;
     color: #ffffff;
     margin: 0;
@@ -66,7 +66,9 @@
   }
   .card .price h4 {
     font-size: 24px;
+    font-weight: bold;
     margin-top: 50px;
+    margin-bottom: 15px;
   }
   .card .button-right {
     text-align: right;
@@ -118,12 +120,12 @@
     -webkit-text-fill-color: transparent;
   }
   .card.card-black .price h4 {
-    background: linear-gradient(170deg, #212121, #0D7377);
+    background: linear-gradient(170deg, #212121, #212121);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
   .card.card-teal .price h4 {
-    background: linear-gradient(170deg, #222831, #00ADB5);
+    background: linear-gradient(170deg, #222831, #222831);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
