@@ -1,6 +1,6 @@
 // ! Validate ตัวเลข
 function checkValidate() {
-
+    
     // ! Check Username
     var regText = /^[-\w\.\$@\*\!]{1,30}$/;
     let textUsername;

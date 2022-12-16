@@ -5,10 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Product</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+
     <script src="js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="//cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="//cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+
     <style>
       body {
         padding-top: 55px;
@@ -45,63 +50,65 @@
     <div class="container">
       <div class="row mt-5">
           <div class="col-md-1">   
-              <label for="text" class="form-label">รหัสสินค้า</label>
+              <label for="text" class="form-label" >รหัสสินค้า</label>
           </div>
           <div class="col-md-3 ">   
-              <input class="form-control" type="text">
+              <input class="form-control" type="text" id="productId" placeholder="กรุณากรอกรหัสสินค้า">
           </div>
 
           <div class="col-md-1">
-              <label for="text" class="form-label">ชื่อสินค้า</label>
+              <label for="text" class="form-label">หมายเลขผลิตภัณฑ์</label>
           </div>
           <div class="col-md-3">
-              <input class="form-control" type="text" >
+              <input class="form-control" type="text" id="productSerialnumber" placeholder="กรุณากรอกหมายเลขผลิตภัณฑ์">
           </div>
 
           <div class="col-md-1">
-              <label for="text" class="form-label">ราคาสินค้า</label>
+              <label for="text" class="form-label">ประเภทสินค้า</label>
           </div>
           <div class="col-md-3">
-              <input class="form-control" type="text" >
-          </div>
-
-          <div class="row d-flex justify-content-center">
-            <div class="col-md-1 mt-4">
-                <label for="text" class="form-label">รูปสินค้า</label>
-            </div>
-            <div class="col-md-3 mt-4">
-                <input class="form-control" type="file" accept="image/*">
-            </div>
+            <select class="form-select" aria-label="ประเภทสินค้า" id="productCategory" name="productCategory">
+              <option value="" disabled selected>เลือกประเภทสินค้า</option>
+              <option value="CT001">Cannon</option>
+              <option value="CT002">Nikon</option>
+              <option value="CT003">Sony</option>
+              <option value="CT004">Fujufilm</option>
+              <option value="CT005">Olympus</option>
+              <option value="CT006">Leica</option>
+              <option value="CT007">Panasonic</option>
+              <option value="CT008">GoPro</option>
+              <option value="CT009">DiJi</option>
+              <option value="CT010">Accessoriess</option>
+            </select>
           </div>
 
           <div class="d-flex justify-content-center mt-4">
-              <button type="button" class="btn btn-info text-white">เพิ่มสินค้า</button>
+              <div class="div mx-3">
+                <button class="btn btn-info text-white" id="createData" onclick="window.location.reload();">เพิ่มสินค้า</button>
+              </div>
+              <div class="div mx-3">
+                <button class="btn btn-success" id="saveData" onclick="window.location.reload();">บันทึก</button>
+              </div>
           </div>
           
-          <div class="text-end ">
+          <div class="text-end my-3">
               <button type="button" class="btn btn-success">แก้ไข</button>
               <button type="button" class="btn btn-danger">ลบ</button>
           </div>
       </div>
     </div>
 
-    <div class="container ">
-      <div class="input-group mt-3 ">
-          <span class="input-group-text" id="basic-addon1">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-          <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>
-          </svg>
-          </span>
-          <input type="search" class="form-control" >
-      </div>
-      <table class="table table-dark mb-5 text-center">
+    <div class="container">
+      <table class="table table-dark mb-5 text-center" id="table-master">
         <thead>
           <tr>
-            <th>รหัสสินค้า</th>
-            <th>หมายเลขผลิตภัณฑ์</th>
-            <th>ชื่อสินค้า</th>
-            <th>ราคา</th>
-            <th>ประเภทสินค้า</th>
+            <th class="text-center">รหัสสินค้า</th>
+            <th class="text-center">หมายเลขผลิตภัณฑ์</th>
+            <th class="text-center">ชื่อสินค้า</th>
+            <th class="text-center">ราคา</th>
+            <th class="text-center">ประเภทสินค้า</th>
+            <th class="text-center"></th>
+            
           </tr>
         </thead>
         <tbody id="tbody">
@@ -140,6 +147,7 @@
   <!-- !Footer -->
 
   <script>
+    // Method : Get Products
     $(document).ready(() => {
       $.ajax({
         method: 'get',
@@ -149,19 +157,105 @@
           let html = "";
           for (let i = 0; i < response.length; i++) {
             const data = response[i];
-            html+= `          
+            console.log(data.categoryName)
+            html+= `
             <tr>
               <td>${data.productId}</td>
               <td>${data.productSerialnumber}</td>
               <td>${data.productName}</td>
               <td>${data.productPrice}</td>
               <td>${data.categoryName}</td>
+              <td>
+                <button type="button" class="btn btn-danger" onclick="deleteDatable('${data.productId}')">ลบ</button>
+                <button class="btn btn-success" 
+                onclick="getValue('${data.productId}',${data.productSerialnumber},'${data.categoryName}')">แก้ไข</button></td>
             </tr>`;
           }
           document.getElementById("tbody").innerHTML=html;
+          $('#tbody').html(html).promise().done(() => {
+            $('#table-master').DataTable();
+          })
         }
       })
     })
+
+    // Method :POST Products
+    let createDataBtn = document.querySelector('#createData');
+    createDataBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        var productId = document.getElementById("productId").value;
+        var productSerialnumber = document.getElementById("productSerialnumber").value;
+
+        var e = document.getElementById("productCategory");
+        var productCategory = e.value;
+        
+        fetch(`http://localhost:5084/api/Products`, {
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              "productId": productId,
+              "productSerialnumber": productSerialnumber,
+              "adminId": "AD001",
+              "categoryId": productCategory
+            })
+        }).then(res => res.json())
+            .then(data => console.log(data))
+            .catch(error => console.log(error));
+    });
+
+    // Method : Delete
+    function deleteDatable(productId) {
+        if (confirm('คุณต้องการลบข้อมูล ใช่ หรือ ไม่')) {
+            
+            fetch(`http://localhost:5084/api/Products/DeleteProducts?id=${productId}`, {
+                method: 'delete',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            }).then(res => res.json())
+                .then(data => console.log(data))
+                .catch(error => console.log(error))
+                window.location.reload();
+        }
+    }
+
+    function getValue(productId,productSerialnumber,categoryName) {
+      document.getElementById("productId").value = productId;
+      document.getElementById("productSerialnumber").value = productSerialnumber;
+      var sel = document.getElementById("productCategory");
+      sel.options[sel.selectedIndex].text = categoryName;
+    };
+
+    // Method : PUT Products
+    let saveDataBtn = document.querySelector('#saveData');
+    saveDataBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        var productId = document.getElementById("productId").value;
+        var productSerialnumber = document.getElementById("productSerialnumber").value;
+
+        var e = document.getElementById("productCategory");
+        var productCategory = e.value;
+
+        fetch(`http://localhost:5084/api/Products/EditProducts`, {
+            method: 'put',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                "productId": productId,
+                "productSerialnumber": productSerialnumber,
+                "adminId": "AD001",
+                "categoryId": productCategory
+            })
+        }).then(res => res.json())
+            .then(data => console.log(data))
+            .catch(error => console.log(error));
+    });
+
   </script>
 </body>
 </html>

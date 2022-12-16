@@ -5,13 +5,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manage Product</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <title>Manage ProductSerials</title>
+    
     <script src="js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <link rel="stylesheet" href="//cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
     <script src="//cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="//cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    
+
     <style>
         body {
             padding-top: 55px;
@@ -32,12 +36,9 @@
 
             <div class="collapse navbar-collapse" id="navbarColor01">
                 <ul class="navbar-nav me-auto mb-2 px-3 gap-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="index.html"><i
-                                class="mx-1 bi bi-house-fill"></i>Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="category.html"><i
-                                class="mx-1 bi bi-camera-fill"></i>Camera</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#"><i
-                                class="mx-1 bi bi-person-lines-fill"></i>Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html"><i class="mx-1 bi bi-house-fill"></i>Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="category.html"><i class="mx-1 bi bi-gear-wide-connected"></i>Manage ProductSerial</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#"><i class="mx-1 bi bi-gear-wide-connected"></i>Manage Product</a></li>
                 </ul>
                 <form class="d-flex" role="search">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -144,7 +145,8 @@
     <!-- !Footer -->
 
     <script>
-        
+
+        // Method : Get ProductSerials
         $(document).ready(() => {
             $.ajax({
                 method: 'get',
@@ -172,7 +174,7 @@
             })
         })
         
-        // POST DATA
+        // Method :POST Serialnumber
         let createDataBtn = document.querySelector('#createData');
         createDataBtn.addEventListener('click', function (e) {
             e.preventDefault();
@@ -196,9 +198,10 @@
                 .catch(error => console.log(error));
         });
         
+        // Method : Delete
         function deleteDatable(productSerialnumber) {
             if (confirm('คุณต้องการลบข้อมูล ใช่ หรือ ไม่')) {
-                // Delete DATA
+                
                 fetch(`http://localhost:5084/api/Products/DeleteProductSerials?id=${productSerialnumber}`, {
                     method: 'delete',
                     headers: {
@@ -217,7 +220,7 @@
             document.getElementById("productPrice").value = productPrice;
         }
 
-        // PUT DATA
+        // Method : PUT ProductSerials
         let saveDataBtn = document.querySelector('#saveData');
         saveDataBtn.addEventListener('click', function (e) {
             e.preventDefault();
@@ -240,6 +243,7 @@
                 .then(data => console.log(data))
                 .catch(error => console.log(error))
         });
+
         // // Delete DATA
         // let deleteDataBtn = document.querySelector('#deleteData');
         // deleteDataBtn.addEventListener('click', function (e) {
