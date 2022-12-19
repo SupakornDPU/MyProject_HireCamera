@@ -218,6 +218,13 @@
             document.getElementById("productSerialnumber").value = productSerialnumber;
             document.getElementById("productName").value = productName;
             document.getElementById("productPrice").value = productPrice;
+            const scroolToTap = () => {
+                window.scroll({
+                top: 0,
+                behavior: 'smooth'
+                });
+            };
+            scroolToTap();
         }
 
         // Method : PUT ProductSerials

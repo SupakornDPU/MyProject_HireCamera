@@ -10,9 +10,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/style.css">
     <style>
-        .card{
-            background-color: #f2f2f2;
-        }
         body {
             padding-top: 55px;
         }
@@ -24,6 +21,16 @@
             color: dodgerblue;
             text-decoration: none;
             cursor: pointer;
+        }
+        .carousel-item img {
+            max-height: 650px;
+            width: 100%;
+            margin: auto;
+        }
+        .carousel .carousel-indicators button {
+            width: 10px;
+            height: 10px;
+            border-radius: 100%;
         }
     </style>
 </head>
@@ -54,16 +61,54 @@
     </nav>
     <!-- ! Navbar -->
 
-    <div class="container-fluid">
+    <!-- <div class="container-fluid">
         <div class="row text-center align-items-center mb-lg-0" style="background-color: #495057; height: 50px;">
             <h3 style="color: white; margin-bottom: 0;" class="fontbold">หมวดหมู่สินค้า</h3>
         </div>
-    </div>
+    </div> -->
+    <div id="carouselExampleCaptions" class="carousel slide carousel-fade bg-black" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+            <img src="https://img.firster.com/cdn-cgi/image/width=1920,quality=75,f=auto/firster/brands/K3D8hONzdsq50vUAm0vxUIuAvSP58qia/Gopro%20Banner_Desktop-03.jpg" class="d-block">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>GoPro Hero 9 Black</h5>
+                <p>ตอบโจทย์ทุกความต้องการของคุณ</p>
+            </div>
+            </div>
+            <div class="carousel-item">
+            <img src="https://unitedbroadcast.com/pub/media/wysiwyg/banner_alpha_advantage_1.jpg" class="d-block ">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Sony</h5>
+                <p>แบรนด์กล้อง Mirrorless ที่ดีที่สุดในโลก</p>
+            </div>
+            </div>
+            <div class="carousel-item">
+            <img src="https://scontent.fbkk5-7.fna.fbcdn.net/v/t39.30808-6/300425648_1974168849450214_3063494085270069026_n.jpg?stp=cp6_dst-jpg&_nc_cat=108&ccb=1-7&_nc_sid=9267fe&_nc_eui2=AeFijRR7XbGftcOBC7GWadLMy5LZ_hTG8oHLktn-FMbyga9xeHsaCXI4Y7OBfUeoSDB4BJSsOWntgQNiimHMF0K8&_nc_ohc=CBFIPhw6UU0AX9dSsqh&_nc_oc=AQn7zH2iJkAo9t6z9VuAKOoj1SQluFtNJ3fb_XbfPA01PiPlpWVgqv7mudRuaUV2ornBITmEyidQB00knGR8rV29&tn=fvBM60VgDeydhYWr&_nc_ht=scontent.fbkk5-7.fna&oh=00_AfChbG879ySyww-nea72qUsoCUjeWx5hKabGr8NRlcjexg&oe=63A5080E" class="d-block ">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Leica</h5>
+                <p>Some representative placeholder content for the third slide.</p>
+            </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+        </div>
 
     <!-- ! Product -->
     <div class="container text-center my-5">
         <div class="row justify-content-center">
-            <div class="card card-black">
+            <div class="card card-black mx-3">
                 <h2 class="title" style="font-weight: 700;">Cannon</h2>
                 <img class="product" src="https://www.lenslineup.com/wp-content/uploads/2020/07/3-canon-400x181.png">
                 <div class="price">
@@ -74,7 +119,7 @@
                 </div>
             </div>
 
-            <div class="card card-teal">
+            <div class="card card-black mx-3">
                 <h2 class="title" style="font-weight: 700;">Nikon</h2>
                 <img class="product" src="https://www.lenslineup.com/wp-content/uploads/2020/07/3-nikon1-400x181.png">
                 <div class="price">
@@ -85,7 +130,7 @@
                 </div>
             </div>
 
-            <div class="card card-black">
+            <div class="card card-black mx-3">
                 <h2 class="title" style="font-weight: 700;">Sony</h2>
                 <img class="product" src="https://www.lenslineup.com/wp-content/uploads/2020/07/3-sony-update-400x181.png">
                 <div class="price">
@@ -96,7 +141,7 @@
                 </div>
             </div>
 
-            <div class="card card-teal">
+            <div class="card card-black mx-3">
                 <h2 class="title" style="font-weight: 700;">Fujufilm</h2>
                 <img class="product" src="https://www.lenslineup.com/wp-content/uploads/2020/07/3-fujifilm-update-t2-400x181.png">
                 <div class="price">
@@ -111,7 +156,7 @@
 
         <!-- ! Row 2 -->
         <div class="row my-5 justify-content-center">
-            <div class="card card-teal">
+            <div class="card card-black mx-3">
                 <h2 class="title" style="font-weight: 700;">Olympus</h2>
                 <img class="product" src="https://www.lenslineup.com/wp-content/uploads/2020/07/olympus-menu-400x181.png">
                 <div class="price">
@@ -122,7 +167,7 @@
                 </div>
             </div>
 
-            <div class="card card-black">
+            <div class="card card-black mx-3">
                 <h2 class="title" style="font-weight: 700;">Leica</h2>
                 <img class="product" src="https://www.lenslineup.com/wp-content/uploads/2020/07/Leica-logo-3-400x181.png">
                 <div class="price">
@@ -133,7 +178,7 @@
                 </div>
             </div>
 
-            <div class="card card-teal">
+            <div class="card card-black mx-3">
                 <h2 class="title" style="font-weight: 700;">Panasonic</h2>
                 <img class="product" src="https://www.lenslineup.com/wp-content/uploads/2020/07/Panasonic-Logo-2-400x181.png">
                 <div class="price">
@@ -144,7 +189,7 @@
                 </div>
             </div>
 
-            <div class="card card-black">
+            <div class="card card-black mx-3">
                 <h2 class="title" style="font-weight: 700;">GoPro</h2>
                 <img class="product" src="https://www.lenslineup.com/wp-content/uploads/2020/11/nn3-v4-400x181.png">
                 <div class="price">
@@ -158,8 +203,7 @@
 
         <!-- ! Row 3 -->
         <div class="row my-5 justify-content-center">
-
-            <div class="card card-black">
+            <div class="card card-black mx-3">
                 <h2 class="title" style="font-weight: 700;">DJI</h2>
                 <img class="product" src="https://www.lenslineup.com/wp-content/uploads/2020/11/new-web-3-51-400x181.png">
                 <div class="price">
@@ -170,7 +214,7 @@
                 </div>
             </div>
 
-            <div class="card card-teal">
+            <div class="card card-black mx-3">
                 <h2 class="title" style="font-weight: 700;">Accessoriess</h2>
                 <img class="product" src="https://www.lenslineup.com/wp-content/uploads/2020/07/Accessoriessss-400x181.png">
                 <div class="price">

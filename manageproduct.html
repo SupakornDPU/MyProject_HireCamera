@@ -163,7 +163,7 @@
               <td>
                 <button type="button" class="btn btn-danger" onclick="deleteDatable('${data.productId}')">ลบ</button>
                 <button class="btn btn-success" 
-                onclick="getValue('${data.productId}',${data.productSerialnumber},'${data.categoryName}')">แก้ไข</button></td>
+                onclick="getValue('${data.productId}',${data.productSerialnumber},'${data.categoryName}')" id="editBtn">แก้ไข</button></td>
             </tr>`;
           }
           document.getElementById("tbody").innerHTML=html;
@@ -222,6 +222,13 @@
       document.getElementById("productSerialnumber").value = productSerialnumber;
       var sel = document.getElementById("productCategory");
       sel.options[sel.selectedIndex].text = categoryName;
+      const scroolToTap = () => {
+        window.scroll({
+          top: 0,
+          behavior: 'smooth'
+        });
+      };
+      scroolToTap();
     };
 
     // Method : PUT Products
